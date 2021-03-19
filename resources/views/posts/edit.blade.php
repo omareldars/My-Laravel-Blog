@@ -1,7 +1,8 @@
 @extends('layouts.app')
-
+{{--@dd($post)--}}
 @section('main')
-    <form method="post" action="{{route(['posts.update',$post->id])}}">
+    <form method="post" action="{{ route('posts.update', $post) }}">
+{{--        //action="{{route('posts.update')}}"--}}
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -10,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea rows="3" class="form-control" name="description" value="{{$post->description}}"></textarea>
+            <textarea rows="3" class="form-control" name="description" value="{{$post->description}}">{{$post->description}}</textarea>
         </div>
         {{--    <div>--}}
         {{--        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">--}}
@@ -24,7 +25,7 @@
             <label for="post_creator" class="form-label">Post creator</label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="user_id">
                 @foreach($users ?? '' as $user)
-                    <option value="{{$user->id}}" @if($post->user_id == $user->id) aria-selected=""  @endif></option>
+                    <option value="{{$user->id}}" @if($post->user_id == $user->id) aria-selected=""  @endif>{{$user->name}}</option>
                 @endforeach
             </select>
         </div>

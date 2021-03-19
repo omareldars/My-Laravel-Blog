@@ -51,15 +51,22 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
+    public function edit($post)
+    {
+        return view('posts.edit',['post'=>Post::find($post),'users'=>User::all()]);
+    }
+
     public function update(Request $myReqObj, Post $post)
     {
         $post->update($myReqObj->all());
         return redirect()->route('posts.edit');
     }
 
-    public function destroy(Request $myReqObj, Post $post)
+    public function destroy($id) //Request $myReqObj, Post not to initialize new instance
     {
-        $post->delete($myReqObj->all());
+//        $post->delete($myReqObj->all());
+        $post = Post::find($id);
+        $post->delete();
         return redirect()->route('posts.index')->with('message','Post Deleted Successfully');
     }
 }
