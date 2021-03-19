@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::paginate(3);
         return view('posts.index',['posts' => $posts]);
 //        $posts = [
 //            ['id' => 1, 'title' => 'Laravel','posted_by' => 'Ahmed', 'created_at' => '2021-03-13','email' => 'aaa@bb.com'],
@@ -58,7 +59,12 @@ class PostController extends Controller
 public function update(Request $myReqObj, $post)
     {
         $post = Post::findorFail($post);
-        $post->update($myReqObj->all());
+//        $post->update($myReqObj->all());
+    $post->update([
+        'title' => $myReqObj['title'],
+        'description' =>$myReqObj['description'],
+        'user_id' =>$myReqObj['user_id'],
+    ]);
         return redirect()->route('posts.index');
     }
 
@@ -68,5 +74,10 @@ public function update(Request $myReqObj, $post)
         $post = Post::find($id);
         $post->delete();
         return redirect()->route('posts.index')->with('message','Post Deleted Successfully');
+    }
+
+    public function run()
+    {
+        User::factory()->count(50)->create();
     }
 }

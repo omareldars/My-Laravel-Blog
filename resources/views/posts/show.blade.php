@@ -2,7 +2,7 @@
 
 
 @section('main')
-<div class="card">
+<div class="card mt-5 container">
     <div class="card-header">
         Post Info
     </div>

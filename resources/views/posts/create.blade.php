@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('main')
-<form method="post" action="{{route('posts.store')}}">
+<form method="post" action="{{route('posts.store')}}" class="mt-5 container">
     @csrf
     <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">Title</label><br>
         <input type="text" class="form-label" id="title" name="title" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
@@ -19,7 +19,7 @@
 {{--            @endforeach--}}
 {{--        </select>--}}
 {{--    </div>--}}
-    <div>
+    <div class="mb-3">
         <label for="post_creator" class="form-label">Post creator</label>
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="user_id">
             <option selected>Select Creator</option>
@@ -28,8 +28,10 @@
             @endforeach
         </select>
     </div>
+    <div style="text-align: center" class="text-container">
+        <button type="submit" class="btn btn-success mt-5">Create</button>
+    </div>
 
-    <button type="submit" class="btn btn-success">Create</button>
 </form>
 
 @endsection

@@ -16,4 +16,9 @@ class Post extends Model
 //        'user_id'
         return $this->belongsTo(User::class);
     }
+
+    public function getCreatedAtFormatedAttribute($date)
+    {
+        return \Carbon\Carbon::parse( $date)->format('Y-m-d');
+    }
 }
