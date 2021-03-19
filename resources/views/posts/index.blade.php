@@ -26,7 +26,7 @@
             <form class="confirmDelete d-inline-block" action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST" >
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm d-inline-block mx-2 px-4 text-white"></button>
+                <button type="submit" class="btn btn-danger btn-sm d-inline-block mx-2 px-4 text-white">Delete</button>
             </form>
         </td>
     </tr>
