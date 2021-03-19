@@ -11,7 +11,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::paginate(3);
-        return view('posts.index',['posts' => $posts]);
+//        $posts = Post::simplepaginate(3);
+        return view('posts.index',['posts' => $posts,]);
 //        $posts = [
 //            ['id' => 1, 'title' => 'Laravel','posted_by' => 'Ahmed', 'created_at' => '2021-03-13','email' => 'aaa@bb.com'],
 //            ['id' => 2, 'title' => 'JS','posted_by' => 'Mohamed', 'created_at' => '2021-03-25','email' => 'aaa@bb.com']

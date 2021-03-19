@@ -2,7 +2,7 @@
 @section('main')
 <div style="text-align: center" class="text-container">
 <a href="{{route('posts.create')}}" class="btn btn-success mt-5">Create Post</a>
-<div>
+
     <table class="table mt-5 container">
     <thead>
     <tr>
@@ -43,9 +43,9 @@
     </tbody>
 </table>
 </div>
-        <div>
-            {!!$posts->links()!!}
-        </div>
+<div style="text-align: center" class="text-container">
+    {!!$posts->links()!!}
+</div>
 
-    </div>
+
 @endsection
