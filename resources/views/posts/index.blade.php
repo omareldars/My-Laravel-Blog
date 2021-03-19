@@ -22,11 +22,18 @@
         <td class="col">
             <a href="{{route('posts.show',['post_id' => $post['id']])}}" class="btn btn-info">View</a>
             <a href="{{route('posts.edit',['post' => $post['id']])}}" class="btn btn-primary">Edit</a>
+{{--            <form class="confirmEdit d-inline-block" action="{{route('posts.edit',['post' => $post->id])}}" method="POST">--}}
+{{--                <a href="" class="btn btn-primary">Edit</a>    --}}
+{{--                @csrf--}}
+{{--                @method('EDIT')--}}
+{{--                <button type="submit" class="btn btn-primary btn-sm d-inline-block mx-3 px-4 text-white">Edit</button>--}}
+{{--            </form>--}}
+
 {{--            <a href="{{route('posts.show',['post_id' => $post['id']])}}" class="btn btn-danger">Delete</a>--}}
             <form class="confirmDelete d-inline-block" action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST" >
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-sm d-inline-block mx-2 px-4 text-white">Delete</button>
+                <button type="submit" class="btn btn-danger btn-sm d-inline-block  text-white">Delete</button>
             </form>
         </td>
     </tr>

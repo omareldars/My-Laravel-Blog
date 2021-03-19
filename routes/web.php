@@ -27,15 +27,5 @@ Route::delete('/posts/delete/{post}',[PostController::class,'destroy'])->name('p
 Route::get('/posts/edit/{post}',[PostController::class,'edit'])->name('posts.edit');
 Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
 
-Route::get('/test',function (){
 
-    $posts = [
-        ['id' => 1, 'title' => 'Laravel','description' => 'This is Description','posted_by' => 'Ahmed', 'created_at' => '2021-03-13'],
-        ['id' => 2, 'title' => 'JS','description' => 'This is Description','posted_by' => 'Mohamed', 'created_at' => '2021-03-25']
-    ];
 
-    return view('index',[
-        'posts' => $posts
-    ]);
-
-});
