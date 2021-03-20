@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -38,16 +39,16 @@ class PostController extends Controller
 //        ];
     }
 
-    public function store(Request $myReqObj)
+    public function store(StorePostRequest $myReqObj)
     {
         $data = $myReqObj->all();
-        $myReqObj->validate([
-            'title' => ['required','min:3'],
-            'description' => ['required','min:10']
-        ],[
-            'title.required' => 'Where is the post title idiot -_-',
-            'description.required' => 'Really a post without description ~_~'
-        ]);
+//        $myReqObj->validate([
+//            'title' => ['required','min:3'],
+//            'description' => ['required','min:10']
+//        ],[
+//            'title.required' => 'Where is the post title idiot -_-',
+//            'description.required' => 'Really a post without description ~_~',
+//        ]);
         //insert into db
         Post::create($data);
         return redirect()->route('posts.index');
