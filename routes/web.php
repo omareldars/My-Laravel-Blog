@@ -29,3 +29,7 @@ Route::put('/posts/{post}',[PostController::class,'update'])->name('posts.update
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

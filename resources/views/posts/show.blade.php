@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('main')
+@section('content')
 <div class="card mt-5 container">
     <div class="card-header">
         Post Info

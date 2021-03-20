@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('main')
+@section('content')
 <div style="text-align: center" class="text-container">
 <a href="{{route('posts.create')}}" class="btn btn-success mt-5">Create Post</a>
 

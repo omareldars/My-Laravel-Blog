@@ -1,6 +1,6 @@
 @extends('layouts.app')
 {{--@dd($post)--}}
-@section('main')
+@section('content')
     <form method="post" action="{{ route('posts.update', ['post'=>$post]) }}">
 {{--        //action="{{route('posts.update')}}"--}}
         @csrf

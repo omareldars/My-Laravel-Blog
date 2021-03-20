@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -65,7 +66,7 @@ class PostController extends Controller
 //        $post->update();
 //        return redirect()->route('posts.edit');
 //    }
-public function update(Request $myReqObj, $post)
+public function update(StorePostRequest $myReqObj, $post)
     {
         $post = Post::findorFail($post);
 //        $post->update($myReqObj->all());
