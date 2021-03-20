@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<form method="post" action="{{route('posts.store')}}" class="mt-5 container">
+    <form method="post" action="{{route('posts.store')}}" class="mt-5 container">
     @csrf
     <div class="mb-3">
         <label for="title" class="form-label">Title</label><br>

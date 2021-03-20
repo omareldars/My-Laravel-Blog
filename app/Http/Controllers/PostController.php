@@ -41,6 +41,13 @@ class PostController extends Controller
     public function store(Request $myReqObj)
     {
         $data = $myReqObj->all();
+        $myReqObj->validate([
+            'title' => ['required','min:3'],
+            'description' => ['required','min:10']
+        ],[
+            'title.required' => 'Where is the post title idiot -_-',
+            'description.required' => 'Really a post without description ~_~'
+        ]);
         //insert into db
         Post::create($data);
         return redirect()->route('posts.index');
