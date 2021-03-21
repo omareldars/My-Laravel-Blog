@@ -42,6 +42,7 @@ class PostController extends Controller
 
     public function store(StorePostRequest $myReqObj)
     {
+//        dd($stdoj);
         $data = $myReqObj->all();
 //        $myReqObj->validate([
 //            'title' => ['required','min:3'],
@@ -91,3 +92,11 @@ public function update(StorePostRequest $myReqObj, $post)
         User::factory()->count(50)->create();
     }
 }
+
+//class Student
+//{
+//    public $name;
+//    public function __constrct(String $name){
+//    $this->name = $name;
+//    }
+//}
